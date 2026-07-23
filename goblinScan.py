@@ -43,7 +43,19 @@ while True:
                 match sub:
                     case "1":
                         target = input("IP/Domain: ")
-                        os.system(f"nmap -T4 {target}")
+                        os.system(f"nmap -p- -sS -sV -sC -O -T2 --reason {target}")
+
+                    case "2":
+                        target = input("IP/Domain: ")
+                        os.system(f"nmap -p- -sS -sV -sC -O -T4 --reason {target}")
+
+                    case "3":
+                        target = input("IP/Domain: ")
+                        os.system(f"nmap -p- -sS -T4 --reason {target}")
+
+                    case "4":
+                        target = input("IP/Domain: ")
+                        os.system(f"sudo nmap -sS -sV -O -T4 {target}")
 
                     case "0":
                         break
