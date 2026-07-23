@@ -17,16 +17,16 @@ def banner():
     print("\x1b[00m")
 
 def menu():
-    print("\n\x1b[33m[1]\x1b[00m  Nmap Scan")
+    print("\n\x1b[33m[1]\x1b[00m Nmap Scan")
     print("\x1b[33m[2]\x1b[00m Gobuster Scan")
     print("\x1b[33m[0]\x1b[00m Sair")
 
 def nmap_menu():
     print("<---- nmap Menu ---->")
-    print("[1] Fast Scan")
-    print("[2] Full Scan")
-    print("[3] Port Scan")
-    print("[4] OS and versions Scan")
+    print("\x1b[33m[1]\x1b[00m Full Scan")
+    print("\x1b[33m[2]\x1b[00m Fast Scan")
+    print("\x1b[33m[3]\x1b[00m Port Scan")
+    print("\x1b[33m[4]\x1b[00m OS and versions Scan")
 
 banner()
 
@@ -38,23 +38,23 @@ while True:
         case "1":
             while True:
                 nmap_menu()
-                sub = input("\n Select the scan type: ")
+                sub = input("\nSelect the scan type: ")
                 
                 match sub:
                     case "1":
-                        target = input("IP/Domain: ")
-                        os.system(f"nmap -p- -sS -sV -sC -O -T2 --reason {target}")
+                        target = input("\x1b[33m IP/Domain: \x1b[00m")
+                        os.system(f"nmap -sS -sV -sC -O -T2 --reason {target}")
 
                     case "2":
-                        target = input("IP/Domain: ")
-                        os.system(f"nmap -p- -sS -sV -sC -O -T4 --reason {target}")
+                        target = input("\x1b[33m IP/Domain: \x1b[00m")
+                        os.system(f"nmap -sS -sV -O -T4 --reason {target}")
 
                     case "3":
-                        target = input("IP/Domain: ")
+                        target = input("\x1b[33m IP/Domain: \x1b[00m")
                         os.system(f"nmap -p- -sS -T4 --reason {target}")
 
                     case "4":
-                        target = input("IP/Domain: ")
+                        target = input("\x1b[33m IP/Domain: \x1b[00m")
                         os.system(f"sudo nmap -sS -sV -O -T4 {target}")
 
                     case "0":
@@ -62,8 +62,7 @@ while True:
 
                     case _:
                        print("error")
-#            alvo = input("IP/domínio: ")
-#            os.system(f"nmap -sV -Pn {alvo}")
+
 
         case "2":
             url = input("URL alvo: ")
