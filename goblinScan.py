@@ -55,7 +55,7 @@ while True:
 
                     case "4":
                         target = input("\x1b[33m IP/Domain: \x1b[00m")
-                        os.system(f"sudo nmap -sS -sV -O -T4 {target}")
+                        os.system(f"nmap -sS -sV -O -T2 {target}")
 
                     case "0":
                         break
@@ -66,8 +66,7 @@ while True:
 
         case "2":
             url = input("URL alvo: ")
-            wordlist = input("Wordlist: ")
-            os.system(f"gobuster dir -u {url} -w {wordlist}")
+            os.system(f"gobuster dir -u {url} -w /usr/share/wordlists/dirb/big.txt -t 50 -q -x php,txt,html")
 
         case "0":
             print("A sair...")
