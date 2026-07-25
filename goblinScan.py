@@ -27,6 +27,7 @@ def nmap_menu():
     print("\x1b[33m[2]\x1b[00m Fast Scan")
     print("\x1b[33m[3]\x1b[00m Port Scan")
     print("\x1b[33m[4]\x1b[00m OS and versions Scan")
+    print("\x1b[33m[9]\x1b[00m How  it works?")
 
 banner()
 
@@ -67,6 +68,9 @@ while True:
         case "2":
             url = input("URL alvo: ")
             os.system(f"gobuster dir -u {url} -w /usr/share/wordlists/dirb/big.txt -t 50 -q -x php,txt,html")
+
+        case "9":
+            
 
         case "0":
             print("A sair...")
