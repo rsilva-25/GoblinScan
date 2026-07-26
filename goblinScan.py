@@ -38,8 +38,16 @@ while True:
         case "1":
             while True:
                 nmap_menu()
+
+                nmap_types = {
+                    "1": "Fast Scan",
+                    "2": "Full Scan",
+                    "3": "Ports Scan",
+                    "4": "OS & Versions Scan"
+                }
+
                 sub = input("\nSelect the scan type: ")
-                
+                print(nmap_types.get(sub, "Invalid Option"))
                 match sub:
                     case "1":
                         target = input("\x1b[33m IP/Domain: \x1b[00m")
