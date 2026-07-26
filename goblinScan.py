@@ -32,7 +32,7 @@ def nmap_menu():
 while True:
     banner()
     menu()
-    opcao = input("\nEscolhe uma opção: ")
+    opcao = input("\nSelect an option: ")
 
     match opcao:
         case "1":
@@ -47,7 +47,7 @@ while True:
                 }
 
                 sub = input("\nSelect the scan type: ")
-                print(nmap_types.get(sub, "Invalid Option"))
+                print(f"-> {nmap_types.get(sub, 'Invalid Option')}")
                 match sub:
                     case "1":
                         target = input("\x1b[33m IP/Domain: \x1b[00m")
@@ -73,7 +73,7 @@ while True:
 
 
         case "2":
-            url = input("URL alvo: ")
+            url = input("Target URL: ")
             os.system(f"gobuster dir -u {url} -w /usr/share/wordlists/dirb/big.txt -t 50 -q -x php,txt,html")
 
         case "9":
