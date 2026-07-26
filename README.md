@@ -1,4 +1,9 @@
 # Goblin Scan 🧌
+
+<p align="center">
+  <img src="https://github.com/rsilva-25/GoblinScan/blob/main/bannerGoblinScan.png" width="250">
+</p>
+
 GoblinScan is a lightweight Python-based cybersecurity toolkit featuring an interactive menu for quick Nmap and Gobuster scans. Designed for simplicity and portability, it provides fast access to essential reconnaissance commands, making it ideal for beginners and small pentesting workflows.
 Features
 
