@@ -77,33 +77,27 @@ while True:
                     case _:
                        print("error")
 
-
         case "2":
-            url = input("Target URL: ")
-            os.system(f"gobuster dir -u {url} -w /usr/share/wordlists/dirb/big.txt -t 50 -q -x php,txt,html")
-
-
             while True:
                 gobuster_menu()
 
                 gobuster_file = {
-			"1": "Small",
-			"2": "Common",
-			"3": "Big"
-		}
-		
+                    "1": "Small",
+                    "2": "Common",
+                    "3": "Big"
+                }
 
-
-		sub = input("\nSelect the scan type: ")
-		print(f"-> {gobuster_file.get(sub, 'Invalid Option')}")
+                sub = input("\nSelect the scan type: ")
+                print(f"-> {gobuster_file.get(sub, 'Invalid Option')}")
+                
                 match sub:
-		    case "1":
-			url = input("Target URL: ")
+                    case "1":
+                        url = input("Target URL: ")
                         os.system(f"gobuster dir -u {url} -w /usr/share/wordlists/dirb/small.txt -t 50 -q -x php,txt,html")
-	           
+                   
                     case "2":
                         url = input("Target URL: ")
-                        os.system(f"gobuster dir -u {url} -w /usr/share/wordlists/dirb/commun.txt -t 50 -q -x php,txt,html")
+                        os.system(f"gobuster dir -u {url} -w /usr/share/wordlists/dirb/common.txt -t 50 -q -x php,txt,html")
 
                     case "3":
                         url = input("Target URL: ")
@@ -113,7 +107,8 @@ while True:
                         break
 
                     case _:
-                       print("error"
+                        print("error")
+
 
         case "9":
             print("\n======================================================")
