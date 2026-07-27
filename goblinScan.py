@@ -29,6 +29,12 @@ def nmap_menu():
     print("\x1b[33m[3]\x1b[00m Port Scan")
     print("\x1b[33m[4]\x1b[00m OS and versions Scan")
 
+def gobuster_menu():
+    print("<---- gobuster ---->")
+    print("\x1b[33m[1]\x1b[00m Small Scan")
+    print("\x1b[33m[2]\x1b[00m Commun Scan")
+    print("\x1b[33m[3]\x1b[00m Big Scan")
+
 while True:
     banner()
     menu()
@@ -75,6 +81,39 @@ while True:
         case "2":
             url = input("Target URL: ")
             os.system(f"gobuster dir -u {url} -w /usr/share/wordlists/dirb/big.txt -t 50 -q -x php,txt,html")
+
+
+            while True:
+                gobuster_menu()
+
+                gobuster_file = {
+			"1": "Small",
+			"2": "Common",
+			"3": "Big"
+		}
+		
+
+
+		sub = input("\nSelect the scan type: ")
+		print(f"-> {gobuster_file.get(sub, 'Invalid Option')}")
+                match sub:
+		    case "1":
+			url = input("Target URL: ")
+                        os.system(f"gobuster dir -u {url} -w /usr/share/wordlists/dirb/small.txt -t 50 -q -x php,txt,html")
+	           
+                    case "2":
+                        url = input("Target URL: ")
+                        os.system(f"gobuster dir -u {url} -w /usr/share/wordlists/dirb/commun.txt -t 50 -q -x php,txt,html")
+
+                    case "3":
+                        url = input("Target URL: ")
+                        os.system(f"gobuster dir -u {url} -w /usr/share/wordlists/dirb/big.txt -t 50 -q -x php,txt,html")
+
+                    case "0":
+                        break
+
+                    case _:
+                       print("error"
 
         case "9":
             print("\n======================================================")
