@@ -19,8 +19,9 @@ def banner():
 def menu():
     print("\n\x1b[33m[1]\x1b[00m Nmap Scan")
     print("\x1b[33m[2]\x1b[00m Gobuster Scan")
-    print("\x1b[33m[0]\x1b[00m Sair")
     print("\x1b[33m[9]\x1b[00m How it works?")
+    print("\x1b[33m[0]\x1b[00m Exit")
+
 
 def nmap_menu():
     print("<---- nmap Menu ---->")
@@ -28,12 +29,16 @@ def nmap_menu():
     print("\x1b[33m[2]\x1b[00m Fast Scan")
     print("\x1b[33m[3]\x1b[00m Port Scan")
     print("\x1b[33m[4]\x1b[00m OS and versions Scan")
+    print("\x1b[33m[0]\x1b[00m Back")
+
 
 def gobuster_menu():
     print("<---- gobuster ---->")
     print("\x1b[33m[1]\x1b[00m Small Scan")
     print("\x1b[33m[2]\x1b[00m Commun Scan")
     print("\x1b[33m[3]\x1b[00m Big Scan")
+    print("\x1b[33m[0]\x1b[00m Back")
+
 
 while True:
     banner()
@@ -75,7 +80,7 @@ while True:
                         break
 
                     case _:
-                       print("error")
+                       print("Invalid Option.")
 
         case "2":
 	    
@@ -94,14 +99,14 @@ while True:
             while True:
                 
                 os.system('clear')
-                print("<---- Select Extensions ---->")
+                print("<---- Select File Types ---->")
                 
                 
                 for i, (file, item) in enumerate(files_check.items(), 1):
                     mark = "X" if item else " "
-                    print(f"[{i}] [{mark}] .{file}")
+                    print(f"\x1b[33m  [{i}]\x1b[00m  [{mark}] .{file}")
                 
-                print("[0] Done (Confirm Selection)")
+                print("\x1b[33m  [0]\x1b[00m  Done (Confirm Selection)")
                 
                 option = input("\nUse the numbers to select the files you want: ")
                 
@@ -139,21 +144,21 @@ while True:
                 match sub:
                     case "1":
                         url = input("Target URL: ")
-                        os.system(f"gobuster dir -u {url} -w /usr/share/wordlists/dirb/small.txt -t 50 -q -x php,txt,html")
+                        os.system(f"gobuster dir -u {url} -w /usr/share/wordlists/dirb/small.txt -t 50 -q -x {files}")
                    
                     case "2":
                         url = input("Target URL: ")
-                        os.system(f"gobuster dir -u {url} -w /usr/share/wordlists/dirb/common.txt -t 50 -q -x php,txt,html")
+                        os.system(f"gobuster dir -u {url} -w /usr/share/wordlists/dirb/common.txt -t 50 -q -x {files}")
 
                     case "3":
                         url = input("Target URL: ")
-                        os.system(f"gobuster dir -u {url} -w /usr/share/wordlists/dirb/big.txt -t 50 -q -x php,txt,html")
+                        os.system(f"gobuster dir -u {url} -w /usr/share/wordlists/dirb/big.txt -t 50 -q -x {files}")
 
                     case "0":
                         break
 
                     case _:
-                        print("error")
+                        print("Invalid Option.")
 
 
         case "9":
@@ -174,8 +179,8 @@ while True:
 
 
         case "0":
-            print("A sair...")
+            print("Exit...")
             break
 
         case _:
-            print("Opção inválida.")
+            print("Invalid Option.")
