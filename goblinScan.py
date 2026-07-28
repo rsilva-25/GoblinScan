@@ -78,6 +78,52 @@ while True:
                        print("error")
 
         case "2":
+	    
+            files_check = {
+  		 "html": True,
+		 "php":  True,
+		 "xml": True,
+ 		 "txt": False,
+                 "json": False,
+                 "js": False,
+                 "py": False,
+                 "pdf": False,
+                 "asp": False
+            }
+
+            while True:
+                
+                os.system('clear')
+                print("<---- Select Extensions ---->")
+                
+                
+                for i, (file, item) in enumerate(files_check.items(), 1):
+                    mark = "X" if item else " "
+                    print(f"[{i}] [{mark}] .{file}")
+                
+                print("[0] Done (Confirm Selection)")
+                
+                option = input("\nUse the numbers to select the files you want: ")
+                
+                if option == "0" or option == "":
+                    break 
+                
+                
+                try:
+                    idx = int(option) - 1
+                    keys = list(files_check.keys())
+                    if 0 <= idx < len(keys):
+                        file_selected = keys[idx]
+                        
+                        files_check[file_selected] = not files_check[file_selected]
+                except ValueError:
+                    pass  
+
+            files = ",".join([file for file, mark in files_check.items() if mark])
+            
+            if not files:
+                files = "php,txt,html"
+
             while True:
                 gobuster_menu()
 
