@@ -1,7 +1,5 @@
 import os
 
-print("tookit for scanning websites and wifi networks\n")
-
 def banner():
     print("\x1b[92m")
     print(r""" ███   ███  ████  █     ███ █   █  ████  ███   ███  █   █ 
@@ -9,11 +7,10 @@ def banner():
 █  ██ █   █ ████  █      █  █ █ █  ███  █     █████ █ █ █ 
 █   █ █   █ █   █ █      █  █  ██     █ █     █   █ █  ██ 
  ███   ███  ████  █████ ███ █   █ ████   ███  █   █ █   █  """)
-
     print("\x1b[00m")
 
     print("\x1b[33m")
-    print("\n Create by: rsilva25")
+    print("Create by: rsilva25")
     print("\x1b[00m")
 
 def menu():
@@ -43,9 +40,9 @@ def gobuster_menu():
 while True:
     banner()
     menu()
-    opcao = input("\nSelect an option: ")
+    option = input("\nSelect an option: ")
 
-    match opcao:
+    match option:
         case "1":
             while True:
                 nmap_menu()
@@ -163,20 +160,24 @@ while True:
 
         case "9":
             print("\n======================================================")
-            print(" 👺 HOW DOES GOBLINSCAN WORK? (QUICK GUIDE)")
+            print(" GOBLINSCAN OPERATIONAL DOCUMENTATION (QUICK GUIDE)")
             print("======================================================")
-            print("\n1. THE NETWORK STAGE (Nmap Options)")
-            print("   • Scan your local network (e.g., 192.168.1.0/24) to find active devices.")
-            print("   • Pick a specific IP and run a stealth scan to see open ports.")
-            print("   • Look for web ports like 80 or 443 in the results.")
-            print("\n2. THE WEB STAGE (Gobuster Options)")
-            print("   • If Nmap reveals a website or an IP running a web service, copy it.")
-            print("   • Feed that URL/IP into the Gobuster option.")
-            print("   • The tool will use the 'big.txt' wordlist to bruteforce hidden paths.")
-            print("\nSUMMARY: First you map the network with Nmap, then you hack the folders with Gobuster!")
-            print("======================================================")
-            input("\nPress [ENTER] to return to the main menu...")
 
+            print("\n1. NETWORK ASSESSMENT PHASE (Nmap Scan)")
+            print("   - Conduct a network sweep (e.g., 192.168.1.0/24) to identify active hosts.")
+            print("   - Select a target host to perform stealth port scanning and version detection.")
+            print("   - Analyze the output to discover exposed web services on ports such as 80 or 443.")
+
+            print("\n2. WEB DIRECTORY RECONNAISSANCE PHASE (Gobuster Scan)")
+            print("   - Extract the identified target URL or IP address from the network assessment.")
+            print("   - Input the target address into the Gobuster module to initiate directory brute-forcing.")
+            print("   - Utilize the selected wordlist to systematically uncover hidden paths and resources.")
+
+            print("\nMETHODOLOGY SUMMARY:")
+            print("   Initially, execute comprehensive network mapping via Nmap to locate assets.")
+            print("   Subsequently, leverage Gobuster to enumerate web directories and files.")
+
+            input("\nPress [ENTER] to return to the main menu...")
 
         case "0":
             print("Exit...")
