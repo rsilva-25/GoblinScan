@@ -95,7 +95,7 @@ while True:
 
             while True:
                 
-                os.system('clear')
+               # os.system('clear')
                 print("<---- Select File Types ---->")
                 
                 
